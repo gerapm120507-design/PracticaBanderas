@@ -17,15 +17,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
+import com.example.practicabanderas.R
 @Composable
 fun BanderaMexico(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
+        modifier = modifier.fillMaxSize()
     ) {
-        // Franja verde
         Box(
             modifier = Modifier
                 .weight(1f)
@@ -33,7 +33,6 @@ fun BanderaMexico(modifier: Modifier = Modifier) {
                 .background(Color(0xFF006341))
         )
 
-        // Franja blanca con marcador del escudo
         Box(
             modifier = Modifier
                 .weight(1f)
@@ -41,15 +40,14 @@ fun BanderaMexico(modifier: Modifier = Modifier) {
                 .background(Color.White),
             contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier
-                    .size(55.dp)
-                    .clip(CircleShape)
-                    .background(Color(0xFFB08D36))
+            Image(
+                painter = painterResource(id = R.drawable.aguila_mexico),
+                contentDescription = "Escudo nacional de México",
+                modifier = Modifier.size(75.dp),
+                contentScale = ContentScale.Fit
             )
         }
 
-        // Franja roja
         Box(
             modifier = Modifier
                 .weight(1f)
@@ -63,10 +61,7 @@ fun BanderaMexico(modifier: Modifier = Modifier) {
 @Composable
 fun BanderaMexicoPreview() {
     Surface(
-        modifier = Modifier.size(
-            width = 320.dp,
-            height = 200.dp
-        )
+        modifier = Modifier.fillMaxSize()
     ) {
         BanderaMexico()
     }
