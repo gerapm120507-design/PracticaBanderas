@@ -44,4 +44,4 @@ fun GreetingPreview() {
     PracticaBanderasTheme {
         Greeting("Android")
     }
-}
+}//2do commit
